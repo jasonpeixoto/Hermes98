@@ -17,36 +17,30 @@ Ensure your Mac has the required build tools installed via Homebrew:
 
 brew install cmake ninja
 
-### 2. Building the Compiler
+### 2. Building the Compiler, download from repo
 
-Navigate to your hermes source directory and execute the following commands to ensure a clean, v98-compatible build:
-
-git checkout https://github.com/facebook/hermes.git
+# Clone the repository
+git clone https://github.com/facebook/hermes.git
+cd hermes
   
 
-# 1. Switch to the branch supporting the HBC v98 bump
+# 1. Switch to the branch supporting the HBC v98 bump Fetch and Switch to the v98 branch
 
+git fetch origin
 git checkout cipolleschi/bump-hermesv1-083
-
-  
 
 # 2. Delete any existing build artifacts to avoid version conflicts
 
 rm -rf build_release
 
-  
-
 # 3. Configure the fresh build
 
 cmake -S . -B build_release -G Ninja -DCMAKE_BUILD_TYPE=Release
-
-  
 
 # 4. Build the hermesc compiler specifically
 
 cmake --build ./build_release --target hermesc
 
-  
 
 ### 3. Verify Binary Capability
 
