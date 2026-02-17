@@ -21,8 +21,7 @@ brew install cmake ninja
 
 Navigate to your hermes source directory and execute the following commands to ensure a clean, v98-compatible build:
 
-Bash
-
+git checkout https://github.com/facebook/hermes.git
   
 
 # 1. Switch to the branch supporting the HBC v98 bump
