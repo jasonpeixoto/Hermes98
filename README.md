@@ -14,40 +14,49 @@ To handle v98 bundles, the compiler must be built from the specific development 
 ### 1. Prerequisites
 
 Ensure your Mac has the required build tools installed via Homebrew:
-
+```
 brew install cmake ninja
-
+```
 ### 2. Building the Compiler, download from repo
 
 ### Clone the repository
+```
 git clone https://github.com/facebook/hermes.git
 cd hermes
-  
+```
 
 ### 3. Switch to the branch supporting the HBC v98 bump Fetch and Switch to the v98 branch
 
+```
 git fetch origin
-
 git checkout cipolleschi/bump-hermesv1-083
+```
 
 ### 4. Delete any existing build artifacts to avoid version conflicts
 
+```
 rm -rf build_release
+```
 
 ### 5. Configure the fresh build
 
+```
 cmake -S . -B build_release -G Ninja -DCMAKE_BUILD_TYPE=Release
+```
 
 ### 6. Build the hermesc compiler specifically
 
+```
 cmake --build ./build_release --target hermesc
-
+```
 
 ### 7. Verify Binary Capability
 
 Confirm the binary is reporting the correct version before use:
 
+```
 ./build_release/bin/hermesc -version
+```
 
 Expected Output:  HBC bytecode version: 98
 
@@ -57,7 +66,9 @@ Expected Output:  HBC bytecode version: 98
 
 Use the following command to transform your binary bundle (index.android.bundle) into a searchable assembly text file:
 
+```
 ./build_release/bin/hermesc -b -dump-bytecode index.android.bundle -out dump.txt
+```
 
 ### Flag Breakdown:
 
