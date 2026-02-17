@@ -19,30 +19,31 @@ brew install cmake ninja
 
 ### 2. Building the Compiler, download from repo
 
-# Clone the repository
+### Clone the repository
 git clone https://github.com/facebook/hermes.git
 cd hermes
   
 
-# 1. Switch to the branch supporting the HBC v98 bump Fetch and Switch to the v98 branch
+### 3. Switch to the branch supporting the HBC v98 bump Fetch and Switch to the v98 branch
 
 git fetch origin
+
 git checkout cipolleschi/bump-hermesv1-083
 
-# 2. Delete any existing build artifacts to avoid version conflicts
+### 4. Delete any existing build artifacts to avoid version conflicts
 
 rm -rf build_release
 
-# 3. Configure the fresh build
+### 5. Configure the fresh build
 
 cmake -S . -B build_release -G Ninja -DCMAKE_BUILD_TYPE=Release
 
-# 4. Build the hermesc compiler specifically
+### 6. Build the hermesc compiler specifically
 
 cmake --build ./build_release --target hermesc
 
 
-### 3. Verify Binary Capability
+### 7. Verify Binary Capability
 
 Confirm the binary is reporting the correct version before use:
 
